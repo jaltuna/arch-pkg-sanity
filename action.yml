@@ -1,0 +1,20 @@
+name: 'Arch Package Sanity'
+description: 'Checking package sanity'
+autor: 'Jeromy Altuna'
+inputs:
+  package:
+    description: 'The package name to check. Corresponds to a directory in this repository'
+    required: true
+  warnings:
+    description: 'The warnings thrown by namcap without affecting the package'
+    required: false
+    default: ""
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args: 
+    - ${{ inputs.package }}
+    - ${{ inputs.warnings }}
+branding:
+  icon: 'package'
+  color: 'green'
