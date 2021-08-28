@@ -1,0 +1,15 @@
+name: Sanity
+on:
+  push:
+    paths: 
+    - 'refind-theme-nord/**'    
+jobs:
+  arch:
+    runs-on: ubuntu-latest    
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        with: 
+          package: "refind-theme-nord"
+          warnings: |
+            refind-theme-nord W: Dependency included and not needed ('refind')
