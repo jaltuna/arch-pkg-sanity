@@ -37,5 +37,6 @@ jobs:
 
 ### refind-theme-nord
 [![Sanity](https://github.com/jaltuna/arch-pkg-sanity/actions/workflows/refind-theme-nord.yml/badge.svg)](https://github.com/jaltuna/arch-pkg-sanity/actions/workflows/refind-theme-nord.yml)
+[![AUR version](https://img.shields.io/aur/version/refind-theme-nord?label=AUR)](https://aur.archlinux.org/packages/refind-theme-nord/)
 
 rEFInd theme inspired to the Nord palette
