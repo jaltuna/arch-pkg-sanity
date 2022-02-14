@@ -1,13 +1,15 @@
 FROM archlinux:base-devel
-LABEL maintainer="Jeromy Altuna"
 
 # To check binary packages and source PKGBUILD
-RUN pacman --noconfirm --noprogressbar -Sy && \
-    pacman --noconfirm --noprogressbar -S namcap
+RUN \
+  pacman --noconfirm --noprogressbar -Sy && \
+  pacman --noconfirm --noprogressbar -S namcap
 
 # makepkg does not run as root
-RUN useradd -G wheel packager && \
-    sed -e 's|# %wheel ALL=(ALL) N|%wheel ALL=(ALL) N|g' -i '/etc/sudoers'
+RUN \
+  useradd packager && \
+  echo "packager ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/01-packager_user && \
+  echo "Defaults lecture = never" > /etc/sudoers.d/privacy
 
 COPY entrypoint.sh /entrypoint.sh
 

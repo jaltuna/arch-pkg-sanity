@@ -17,7 +17,7 @@ is_warning_allowed() {
 }
 
 # Directory of the package to check 
-chown -R packager:wheel "$PKGDIR"
+chown -R packager "$PKGDIR"
 cd "$PKGDIR" || exit 1
 
 # Check PKGBUILD
